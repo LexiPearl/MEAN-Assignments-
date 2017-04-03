@@ -1,0 +1,38 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper{
+    padding: 20px;
+    margin: 40px;
+    width: 600px;
+    display: block;
+    background-color: lavender;
+}
+
+img{
+    height: 100px;
+    margin: 10px 0px;
+}
+
+#image{
+    width: 100%;
+    text-align: center;
+}
+#container{
+    padding: 20px;
+    margin: 40px;
+    width: 600px;
+    display: block;
+    background-color: lavender;
+}
+
+p{
+    margin: 10px;
+}
+
+h2{
+    margin: 0px 0px 10px 0px;
+    text-decoration: underline;
+}

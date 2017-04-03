@@ -1,0 +1,33 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper{
+    padding: 30px;
+    margin: 40px;
+    width: 700px;
+    display: block;
+    background-color: lavender;
+    text-align: center;
+}
+
+h2{
+    margin: 15px 0px;
+}
+
+#button_click{
+    display:block;
+    background-color: green;
+    margin: 10px 0px 10px 250px;
+    height: 60px;
+    width: 200px;
+    margin-left: 245px;
+}
+
+#reset{
+    display:block;
+    margin: 20px 0px 10px 315px;
+    background-color: red;
+    height: 20px;
+}

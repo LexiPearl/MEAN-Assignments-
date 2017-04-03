@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<title>Owls</title>
+</head>
+<body>
+<div id="container">
+    <h2>Owl Information</h2>
+        <p>Name: <%= owls.name %></p>
+        <p>Color: <%= owls.color %></p>
+    <button><a href="/<%=owls.id%>/edit" method="get">Edit</a></button>
+	<button><a href="/" method="get">Home</a></button>
+</div>
+</body>
+</html>

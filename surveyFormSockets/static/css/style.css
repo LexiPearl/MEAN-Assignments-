@@ -1,0 +1,16 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper{
+    padding: 30px;
+    margin: 40px;
+    width: 700px;
+    display: block;
+    background-color: lavender;
+}
+
+h2{
+    margin: 15px 0px;
+}

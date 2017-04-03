@@ -1,0 +1,27 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper{
+    padding: 30px;
+    margin: 40px;
+    width: 700px;
+    display: block;
+    background-color: lavender;
+    height: 500px;
+    overflow: scroll;
+}
+
+h2{
+    margin: 15px 0px;
+}
+
+#message{
+    width: 300px;
+}
+
+p{
+    margin: 10px 0px;
+    word-wrap: break-word;
+}

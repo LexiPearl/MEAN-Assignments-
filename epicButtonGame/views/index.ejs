@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<meta charset="UTF-8">
+	<title>Group Chat</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+            var socket = io.connect();
+            $('#button_click').click(function() {
+                socket.emit("button_click", {
+                    number: 'Somebody pushed the button',
+                });
+            });
+            $('#reset').click(function(){
+                socket.emit("reset", {
+                    number: 'Resetting the counter',
+                });
+            });
+            socket.on('updated_message', function (data){
+                $('#number').html("The button has been pushed " + JSON.stringify(data.response) + " time(s)");
+            });
+            socket.on('reset', function(data){
+                $('#number').html("");
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="wrapper">
+	<h2>Group Chat</h2>
+    <br>
+	<p>The page at https://localhost says: </p>
+    <p>Your name: </p>
+    <input type="text" name="name"></input>
+	<button id="cancel">Cancel!</button>
+    <button id="got_a_new_user">OK</button>
+</div>
+</body>
+</html>

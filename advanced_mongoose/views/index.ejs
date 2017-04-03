@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>index</title>
+</head>
+<body>
+	<h2>All the users</h2>
+	<% for(var user in users){ %>
+		<p><%= users[user].name %></p>
+		<p><%= users[user].email %></p>
+		<p><%= users[user].gender %></p>
+		<hr>
+	<% } %>
+
+	<h2>Create a user</h2>
+	<form action='/users' method='post'>
+		Name: <input type="text" name="name">
+		Email: <input type="text" name="email">
+		Gender: <input type="text" name="gender">
+		<input type="submit" value="New User">
+	</form>
+
+	<h2>Create a Valentine</h2>
+	<form action='/valentine' method='post'>
+		Message: <input type="text" name="message">
+		Chaser: <select name='chaser'>
+			<% for(var user in users){ %>
+				<option value="<%= users[user]._id %>"><%= users[user].name %></option>	
+			<% } %>
+		</select>
+		Chasee: <select name='chasee'>
+			<% for(var user in users){ %>
+				<option value="<%= users[user]._id %>"><%= users[user].name %></option>	
+			<% } %>
+		</select>
+		<input type="submit" value="send val">
+	</form>
+
+	<h2>All the valentines</h2>
+	<% for(var valentine in valentines){ %>
+		<p>message: <%= valentines[valentine].message %></p>
+		<p>from: <%= valentines[valentine]._chaser %></p>
+		<p>to: <%= valentines[valentine]._chasee %></p>
+		<hr>
+	<% } %>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>GitHub API</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+    <form method="post">
+        <p><input type="text" name="name"></p>
+        <p><input type="submit" class="submit" value="Find Your Name!"></p>
+    </form>
+    <div id="github">
+    </div>
+</body>
+<script>
+$(document).ready(function(){
+    $('.submit').on('click', function(){
+        var x=$('form').serializeArray()[0].value
+        console.log(x)
+        var url= "https://api.github.com/users/" + x
+        console.log(url)
+        $.get(url, displayName);
+        return false
+    });
+    function displayName(data){
+        if(data.name){
+            $('#github').append('<p>'+data.name+'</p>');
+        }
+        else{
+            $('#github').append('<p>'+data.login+'</p>');
+        }
+    }
+});
+</script>
+</html>

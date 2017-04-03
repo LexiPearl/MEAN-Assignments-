@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<meta charset="UTF-8">
+	<title>Users</title>
+</head>
+<body>
+<div id="wrapper">
+    <h2>Users</h2>
+    <img src="images/HogwartsSeal.gif">
+	<form action="/users" method="post">
+		<div id="name">
+			<label for="name">Your Name: </label>
+			<input type="text" name="name">
+		</div>
+		<div id="age">
+			<label for="age">Age: </label>
+			<input type="text" name="age">
+		</div>
+        <div id="house">
+            <label for="house">House: </label>
+            <select name="house">
+                <option>Slytherin</option>
+                <option>Ravenclaw</option>
+                <option>Hufflepuff</option>
+                <option>Gryffindor</option>
+            </select>
+        </div>
+		<input type="submit" value="Submit">
+	</form>
+    <h2>All Users</h2>
+        <div id="list">
+            <% for (var x in users){ %>
+                <p><%= users[x].name %></p>
+                <p><%= users[x].age %></p>
+                <p><%= users[x].house %></p>
+                <% if (users[x].house=="Gryffindor"){ %>
+                    <img src="images/Gryffindor.gif">
+                <% } %>
+                <% if (users[x].house=="Slytherin"){ %>
+                    <img src="images/Slytherin.png">
+                <% } %>
+                <% if (users[x].house=="Ravenclaw"){ %>
+                    <img src="images/Ravenclaw.png">
+                <% } %>
+                <% if (users[x].house=="Hufflepuff"){ %>
+                    <img src="images/Hufflepuff.png">
+                <% } %>
+                <br>
+            <% } %>
+        </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+> use my_first_db
+
+> db.createCollection('students')
+
+> show collections
+
+> db.students.insert({name:"Benis", home_state:"Maryland", lucky_number:3, birthday: {month:3, day: 14, year: 1997}})
+
+> db.students.insert({name:"Lexi", home_state:"Pennsylvania", lucky_number:4, birthday: {month:5, day: 20, year: 1991}})
+
+> db.students.insert({name:"Eric", home_state:"DC", lucky_number:11, birthday: {month:10, day: 16, year: 1989}})
+
+> db.students.insert({name:"Tori", home_state:"Pennsylvania", lucky_number:13, birthday: {month:10, day: 13, year: 1989}})
+
+> db.students.insert({name:"Milton", home_state:"Maryland", lucky_number:7, birthday: {month:6, day: 13, year: 1995}})
+
+>db.students.find({all})
+
+>db.students.find({home_state:"Maryland"})
+
+>db.students.find({lucky_number: {$gt:3}})
+>db.students.find({lucky_number: {$lte:10}})
+>db.students.find({lucky_number: {$gt:1, $lte:9}})
+
+>db.students.update({}, {$addToSet: {interests:['coding', 'brunch', 'mongoDB']}}, {multi:true})
+
+>db.students.update({name:"Benis"}, {$push: {interests:{$each:['skateboarding']}}})
+>db.students.update({name:"Lexi"}, {$push:{interests:'hiking'}})
+>db.students.update({name:"Eric"}, {$push:{interests:'lifting'}})
+>db.students.update({name:"Tori"}, {$push:{interests:'Complaining'}})
+>db.students.update({name:"Milton"}, {$push:{interests:'Music'}})
+
+>db.students.update({name:"Milton"}, {$push:{interests:'Taxes'}})
+
+>db.students.update({name:"Milton"}, {$pull:{interests:'Taxes'}})
+
+>db.students.remove({home_state: "Pennsylvania"})
+
+>db.students.remove({name:"Milton"})
+
+>db.students.remove({lucky_number: {$gt:5}}, {justOne:true})
+
+>db.students.update({},{$set: {number_of_belts:0}},{multi:true})
+
+>db.students.update({home_state: "Maryland"},{$inc: {number_of_belts: 1}},{multi:true})
+
+>db.students.update({}, {$rename: {"number_of_belts":"belts_earned"}})
+
+>db.students.update({}, {$unset: {lucky_number:""}})
+
+>db.students.update({}, {$currentDate:{updated_on:true}})

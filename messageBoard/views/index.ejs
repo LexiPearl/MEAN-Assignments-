@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<meta charset="UTF-8">
+	<title>Message Board</title>
+</head>
+<body>
+<div id="wrapper">
+    <h2>The Dojo Message Board!</h2>
+    <hr>
+    <% if (err){ %>
+        <h3><%= err.errors.name %></h3>
+    <% } %>
+    <form action="/addMessage" method="post">
+        <p><label for="name">Name: </label>
+            <input type="text" name="name"></p>
+        <p><label for="message">Message: </label>
+            <textarea rows="6" cols="60" name="message"></textarea></p>
+        <p><input type="submit" value="Post Message"></p>
+    </form>
+    <hr>
+    <% for (var x in messages){ %>
+        <h2>Name: <%= messages[x].name %> </h2>
+        <h2>Message: <%= messages[x].message %> </h2>
+        <% for (var y=0; y<messages[x]._comments.length; y++){ %>
+            <h3>Name: <%= messages[x]._comments[y].name %>  </h3>
+            <h3>Comment: <%= messages[x]._comments[y].comment %> </h3>
+        <% } %>
+        <form id="indent" action='/addComment/<%= messages[x]._id %>' method="post">
+            <p><label for="name"> Name: </label>
+                <input type="text" name="name"></p>
+            <p><label for="comment">Comment: </label>
+                <textarea rows="4" cols="40" name="comment"></textarea></p>
+            <p><input type="submit" value="Post Comment"></p>
+		</form>
+            <hr>
+    <% } %>
+</div>
+</body>
+</html>

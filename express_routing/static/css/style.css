@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper{
+    padding: 20px;
+    margin: 40px;
+    width: 600px;
+    display: block;
+    background-color: lavender;
+}
+p{
+    margin: 10px 0px;
+}

@@ -1,0 +1,13 @@
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<html>
+<body>
+<div id="wrapper">
+    <h2>Here are all the users:</h2>
+    <% for (var i=0; i< users.length; i++){ %>
+        <h3>Name: <%= users[i].name %> </h3>
+        <h3>Email: <%= users[i].email %> </h3>
+        <br>
+    <% } %>
+</div>
+</body>
+</html>
